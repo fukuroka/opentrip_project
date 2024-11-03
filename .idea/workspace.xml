@@ -4,15 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9d1a7cfd-eb60-4691-b0f2-551c7fd7721a" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/opentrip_project.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/opentrip_project.iml" afterDir="false" />
+    <list default="true" id="9d1a7cfd-eb60-4691-b0f2-551c7fd7721a" name="Changes" comment="added models for hotels and users">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/opentrip/bookings/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/opentrip/bookings/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/opentrip/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/opentrip/db.sqlite3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/opentrip/hotels/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/opentrip/hotels/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/opentrip/opentrip/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/opentrip/opentrip/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/opentrip/opentrip/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/opentrip/opentrip/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/opentrip/users/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/opentrip/users/models.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,18 +18,18 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "fukuroka"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;fukuroka&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/fukuroka/opentrip_project.git",
-    "accountId": "57bc8a59-aae0-442d-9130-a3fd4f9e65da"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/fukuroka/opentrip_project.git&quot;,
+    &quot;accountId&quot;: &quot;57bc8a59-aae0-442d-9130-a3fd4f9e65da&quot;
   }
-}]]></component>
+}</component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 5
 }</component>
@@ -43,14 +39,14 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Python.models.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "master",
-    "last_opened_file_path": "/home/admin/Рабочий стол/Питон проекты/Обучение Джанго/Обучение_ИТ_КОД/opentrip_project"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Python.models.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/admin/Рабочий стол/Питон проекты/Обучение Джанго/Обучение_ИТ_КОД/opentrip_project&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="models" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="opentrip_project" />
@@ -96,6 +92,30 @@
       <option name="presentableId" value="Default" />
       <updated>1730569522118</updated>
     </task>
+    <task id="LOCAL-00001" summary="added models for hotels and users">
+      <option name="closed" value="true" />
+      <created>1730579094943</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1730579094943</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="added models for hotels and users" />
+    <option name="LAST_COMMIT_MESSAGE" value="added models for hotels and users" />
   </component>
 </project>

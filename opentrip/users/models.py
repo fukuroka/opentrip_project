@@ -112,3 +112,11 @@ def create_profile(sender, instance, created, **kwargs):
             HotelProfile.objects.create(user=instance)
         elif instance.user_type == 'customer':
             CustomerProfile.objects.create(user=instance)
+
+
+def get_user_profile(user):
+    if user.user_type == "customer":
+        return user.customer_profile
+    elif user.user_type == "hotel":
+        return user.hotel_profile
+    return None  # or raise an exception

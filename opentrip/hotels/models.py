@@ -53,6 +53,7 @@ class RoomType(models.Model):
     description = models.TextField(blank=True, null=True, verbose_name='Описание типа номера')
     occupancy = models.PositiveIntegerField(verbose_name='Максимальное количество гостей')
     amenities = models.ManyToManyField("Amenity", verbose_name='Удобства типа номера', related_name='room_types', blank=True)
+    price_per_night = models.DecimalField(max_digits=10, decimal_places=2, verbose_name='Цена за ночь', default=0.00)
 
     class Meta:
         verbose_name = 'Тип номера'
