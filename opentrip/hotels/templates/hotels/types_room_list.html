@@ -1,19 +1,18 @@
 {% extends 'base.html' %}
 
-{% block title %}Hotels{% endblock %}
+{% block title %}Номера{% endblock %}
 
 {% block body %}
 <div class="container mt-5">
-    <h1>Отели г. {{ city }}</h1>
-
-    <div class="row">
-        {% for hotel in hotels %}
-            <div class="col-12 mb-4" style="margin-top:50px;">
+    <h1>Номера</h1>
+    <div class="row" style="margin-top:50px;">
+        {% for room_type in room_types %}
+            <div class="col-12 mb-4">
                 <div class="card">
                     <div class="row g-0">
                         <div class="col-md-4">
-                            {% if hotel.preview %}
-                                <img src="{{ hotel.preview.url }}" class="img-fluid rounded-start" alt="{{ hotel.name }}" style="width: 90%; height: 90%; object-fit: cover; margin: 3%;">
+                            {% if room_type.preview %}
+                                <img src="{{ room_type.preview.url }}" class="img-fluid rounded-start" alt="{{ room_type.name }}" style="width: 90%; height: 90%; object-fit: cover; margin: 3%;">
                             {% endif %}
                         </div>
                         <div class="col-md-8">
@@ -23,31 +22,30 @@
                                     <div class="row">
                                         <div class="col-md-8">
                                             <div class="d-flex align-items-center">
-                                                <h4 class="card-title">{{ hotel.name }}</h4>
-                                                <span class="ms-3"> {{ hotel.rating }}</span>
+                                                <h4 class="card-title">{{ room_type.name }}</h4>
                                             </div>
+                                            <p class="card-text">{{ room_type.description|truncatechars:100 }}</p>
                                             <div class="d-flex flex-wrap mb-2">
-                                                {% for amenity in hotel.amenities.all %}
+                                                {% for amenity in room_type.amenities.all %}
                                                     <span class="badge text-dark me-1 mb-1" style="background-color: #c9c9c9">{{ amenity.name }}</span>
                                                 {% endfor %}
                                             </div>
-                                            <p class="card-text">{{ hotel.description|truncatechars:100 }}</p>
                                         </div>
 
                                         <div class="col-md-4 text-end" style="padding-left:45px;">
-                                            {% if hotel.cheapest_room_type %}
-                                                <div style="width: 220px;">
-                                                    <p class="card-text display-6 mb-0" style="font-size: 2.1em;"> {{ hotel.price_selected_nights }} руб.</p>
-                                                    <p class="card-text small text-muted" style="padding-top:20px;font-size: 1.2em;">{{ hotel.cheapest_room_type.price_per_night }} руб. за ночь</p>
+                                            <div style="width: 220px;">
+                                                {% if room_type.price_selected_nights %}
+                                                    <p class="card-text display-6 mb-0" style="font-size: 2.1em;"> {{ room_type.price_selected_nights }} руб.</p>
+                                                    <p class="card-text small text-muted" style="padding-top:20px;font-size: 1.2em;">{{ room_type.price_per_night }} руб. за ночь</p>
 
                                                     {% if nights > 0 %}
                                                         <p style="font-size: x-small; padding-top: 80px;" class="mt-n2 mb-2">За {{ nights }} ноч{{ nights|pluralize:"ь,и" }}</p>
                                                     {% endif %}
-                                                    <a href="{% url 'hotels_app:hotel_types_room' hotel.pk %}?check_in={{ request.GET.check_in }}&check_out={{ request.GET.check_out }}" class="btn btn-primary float-end w-100">Выбрать</a>
-                                                </div>
-                                            {% else %}
-                                                <p class="card-text">Нет доступных номеров.</p>
-                                            {% endif %}
+                                                    <a href="#" class="btn btn-primary float-end w-100">Выбрать</a>
+                                                {% else %}
+                                                    <p class="card-text">Даты не выбраны</p> <p class="card-text small text-muted" style="padding-top:20px;font-size: 1.2em;">{{ room_type.price_per_night }} руб. за ночь</p> <a href="#" class="btn btn-primary float-end w-100">Выбрать</a>
+                                                {% endif %}
+                                            </div>
                                         </div>
                                     </div>
                                 </div>

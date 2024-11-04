@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.views.generic import ListView, DetailView, UpdateView, DeleteView, CreateView, TemplateView
-from hotels.models import Hotel
+from hotels.models import Hotel, RoomType
 from bookings.models import BookedRoom
 from datetime import datetime
 
@@ -41,5 +41,37 @@ class SearchHotelsView(ListView):
             cheapest_room_type = hotel.room_types.order_by('price_per_night').first()
             hotel.cheapest_room_type = cheapest_room_type
             hotel.price_selected_nights = cheapest_room_type.price_per_night * context['nights']
+
+        return context
+
+
+class HotelRoomTypesView(DetailView):
+    model = Hotel
+    template_name = 'hotels/types_room_list.html'
+    context_object_name = 'hotel'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+
+        check_in_str = self.request.GET.get('check_in')
+        check_out_str = self.request.GET.get('check_out')
+        nights = None
+
+        if check_in_str and check_out_str:
+            try:
+                check_in = datetime.strptime(check_in_str, '%Y-%m-%d').date()
+                check_out = datetime.strptime(check_out_str, '%Y-%m-%d').date()
+                nights = (check_out - check_in).days
+            except ValueError:
+                pass
+
+        context['room_types'] = RoomType.objects.filter(hotel=self.object).prefetch_related('amenities', 'images')
+        context['nights'] = nights
+
+        for room_type in context['room_types']:
+            if nights is not None:
+                room_type.price_selected_nights = room_type.price_per_night * nights
+            else:
+                room_type.price_selected_nights = None
 
         return context

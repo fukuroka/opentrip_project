@@ -10,10 +10,10 @@ def hotel_photo_directory_path(instance, filename):
     return f'hotels/{instance.name}/{filename}'
 
 def room_preview_directory_path(instance, filename):
-    return f'rooms/{instance.number}/preview_{filename}'
+    return f'rooms/{instance.name}/preview_{filename}'
 
 def room_photo_directory_path(instance, filename):
-    return f'rooms/{instance.number}/{filename}'
+    return f'rooms/{instance.name}/{filename}'
 
 
 class Hotel(models.Model):
@@ -54,6 +54,15 @@ class RoomType(models.Model):
     occupancy = models.PositiveIntegerField(verbose_name='Максимальное количество гостей')
     amenities = models.ManyToManyField("Amenity", verbose_name='Удобства типа номера', related_name='room_types', blank=True)
     price_per_night = models.DecimalField(max_digits=10, decimal_places=2, verbose_name='Цена за ночь', default=0.00)
+    preview = models.ImageField(null=True, blank=True,
+                                upload_to=room_preview_directory_path,
+                                verbose_name='Главное фото номера')
+    images = models.ManyToManyField(
+        "RoomImage",
+        verbose_name='Фотографии номера',
+        related_name='rooms',
+        blank=True
+    )
 
     class Meta:
         verbose_name = 'Тип номера'
@@ -67,15 +76,7 @@ class RoomType(models.Model):
 class Room(models.Model):
     room_type = models.ForeignKey(RoomType, verbose_name='Тип номера', related_name='rooms', on_delete=models.CASCADE)
     number = models.CharField(max_length=10, verbose_name='Номер комнаты')
-    preview = models.ImageField(null=True, blank=True,
-                                upload_to=room_preview_directory_path,
-                                verbose_name='Главное фото номера')
-    images = models.ManyToManyField(
-        "RoomImage",
-        verbose_name='Фотографии номера',
-        related_name='rooms',
-        blank=True
-    )
+
 
     class Meta:
         verbose_name = 'Номер'
