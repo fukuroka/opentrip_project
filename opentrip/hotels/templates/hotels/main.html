@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block title %}Opentrip{% endblock %}
+
+{% block body %}
+    <div class="container mt-5">
+        <form method="get" action="{% url 'hotels_app:search_hotels' %}">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="mb-3">
+                        <label for="city" class="form-label">Город:</label>
+                        <input type="text" class="form-control" id="city" name="city" placeholder="Например, Москва">
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="mb-3">
+                        <label for="check_in" class="form-label">Дата заезда:</label>
+                        <input type="date" class="form-control" id="check_in" name="check_in">
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="mb-3">
+                        <label for="check_out" class="form-label">Дата выезда:</label>
+                        <input type="date" class="form-control" id="check_out" name="check_out">
+                    </div>
+                </div>
+                <div class="col-md-2 d-flex align-items-end">
+                    <button type="submit" class="btn btn-primary w-100">Найти</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+{% endblock %}

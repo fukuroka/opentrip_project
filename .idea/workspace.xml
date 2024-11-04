@@ -4,9 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9d1a7cfd-eb60-4691-b0f2-551c7fd7721a" name="Changes" comment="added models for bookings and travel_journals">
+    <list default="true" id="9d1a7cfd-eb60-4691-b0f2-551c7fd7721a" name="Changes" comment="added admin for all apps and new data for db">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/opentrip/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/opentrip/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/opentrip/hotels/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/opentrip/hotels/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/opentrip/hotels/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/opentrip/hotels/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/opentrip/opentrip/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/opentrip/opentrip/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/opentrip/opentrip/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/opentrip/opentrip/urls.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,6 +21,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Python Script" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -44,15 +49,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Python.models.executor": "Run",
-    "Python.update.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "master",
-    "last_opened_file_path": "/home/admin/Рабочий стол/Питон проекты/Обучение Джанго/Обучение_ИТ_КОД/opentrip_project"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;Python.models.executor&quot;: &quot;Run&quot;,
+    &quot;Python.update.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/admin/Рабочий стол/Питон проекты/Обучение Джанго/Обучение_ИТ_КОД/opentrip_project&quot;
   }
-}]]></component>
+}</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/opentrip/static" />
+    </key>
+  </component>
   <component name="RunManager" selected="Python.update">
     <configuration name="models" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="opentrip_project" />
@@ -137,7 +148,15 @@
       <option name="project" value="LOCAL" />
       <updated>1730640593313</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="added admin for all apps and new data for db">
+      <option name="closed" value="true" />
+      <created>1730645333067</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1730645333067</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -154,6 +173,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="added models for hotels and users" />
     <MESSAGE value="added models for bookings and travel_journals" />
-    <option name="LAST_COMMIT_MESSAGE" value="added models for bookings and travel_journals" />
+    <MESSAGE value="added admin for all apps and new data for db" />
+    <option name="LAST_COMMIT_MESSAGE" value="added admin for all apps and new data for db" />
   </component>
 </project>
