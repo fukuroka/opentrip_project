@@ -16,6 +16,10 @@ class Booking(models.Model):
     ]
 
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, verbose_name='Пользователь')
+    name = models.CharField(max_length=255, default='111123132')
+    surname = models.CharField(max_length=255, default='jdnjfn')
+    phone_number = models.CharField(max_length=15,default='1111')
+    email = models.EmailField(default='11111')
     booking_reference = models.UUIDField(default=uuid.uuid4, editable=False, unique=True, verbose_name='Номер бронирования')
     created_at = models.DateTimeField(auto_now_add=True, verbose_name='Дата создания')
     total_price = models.DecimalField(max_digits=10, decimal_places=2, verbose_name='Общая стоимость', default=0)
@@ -38,6 +42,7 @@ class Booking(models.Model):
 
 class BookedRoom(models.Model):
     booking = models.ForeignKey(Booking, on_delete=models.CASCADE, related_name='booked_rooms', verbose_name='Бронирование')
+    room_type = models.ForeignKey(RoomType, on_delete=models.CASCADE)
     room = models.ForeignKey(Room, on_delete=models.CASCADE, verbose_name='Номер')
     check_in = models.DateField(verbose_name='Дата заезда')
     check_out = models.DateField(verbose_name='Дата выезда')

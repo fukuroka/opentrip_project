@@ -5,14 +5,12 @@
 {% block body %}
 <div class="container mt-5">
     <div class="mb-4">
-        <!-- Название отеля и рейтинг -->
         <div class="d-flex align-items-center mb-2">
             <h2 class="me-2">{{ hotel.name }}</h2>
             <span class="badge bg-success fs-5">{{ hotel.rating }}</span>
         </div>
         <p class="text-muted mb-4">{{ hotel.address }}</p>
 
-        <!-- Карусель изображений, выравненная по центру -->
         <div class="d-flex justify-content-center">
             <div id="hotelCarousel" class="carousel slide mb-3" data-bs-ride="carousel" data-bs-interval="false" style="width: 70%;">
                 <div class="carousel-inner">
@@ -45,7 +43,6 @@
             });
         </script>
 
-        <!-- Удобства отеля -->
         <div class="d-flex flex-wrap my-3">
             {% for amenity in hotel.amenities.all %}
                 <span class="badge text-dark me-2 mb-2 px-3 py-2 fs-6" style="background-color: #c9c9c9">{{ amenity.name }}</span>
@@ -58,22 +55,21 @@
                     <p class="mb-1"><strong>Заселение:</strong></p>
                     <p>{{ hotel.check_in_time|time:"H:i" }}</p>
                 </div>
-                <div class="vr mx-3"></div> <!-- Вертикальная линия -->
+                <div class="vr mx-3"></div>
                 <div class="flex-grow-1 text-center">
                     <p class="mb-1"><strong>Выселение:</strong></p>
                     <p>{{ hotel.check_out_time|time:"H:i" }}</p>
                 </div>
             </div>
 
-            <!-- Описание отеля, выровненное на одном уровне -->
             <div class="ms-4 flex-grow-1">
                 <p class="mb-0">{{ hotel.description }}</p>
             </div>
         </div>
 
-        <!-- Фильтр, кнопка и даты в отдельном блоке с скругленными границами -->
         <div class="d-flex align-items-start my-4">
             <form method="get" class="d-inline-block me-4">
+
                 <input type="hidden" name="check_in" value="{{ request.GET.check_in }}">
                 <input type="hidden" name="check_out" value="{{ request.GET.check_out }}">
                 <div class="mb-2">
@@ -132,7 +128,7 @@
                                                     {% if nights > 0 %}
                                                         <p style="font-size: x-small; padding-top: 80px;" class="mt-n2 mb-2">За {{ nights }} ноч{{ nights|pluralize:"ь,и" }}</p>
                                                     {% endif %}
-                                                    <a href="#" class="btn btn-primary float-end w-100">Выбрать</a>
+                                                    <a href="{% url 'bookings_app:booking-create' room_type.pk %}?check_in={{ request.GET.check_in }}&check_out={{ request.GET.check_out }}&occupancy={{ request.GET.occupancy }}" class="btn btn-primary float-end w-100">Забронировать</a>
                                                 {% else %}
                                                     <p class="card-text">Даты не выбраны</p> <p class="card-text small text-muted" style="padding-top:20px;font-size: 1.2em;">{{ room_type.price_per_night }} руб. за ночь</p> <a href="#" class="btn btn-primary float-end w-100">Выбрать</a>
                                                 {% endif %}

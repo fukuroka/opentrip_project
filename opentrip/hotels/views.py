@@ -1,7 +1,5 @@
-from django.shortcuts import render
-from django.views.generic import ListView, DetailView, UpdateView, DeleteView, CreateView, TemplateView
+from django.views.generic import ListView, DetailView,TemplateView
 from hotels.models import Hotel, RoomType
-from bookings.models import BookedRoom
 from datetime import datetime
 from hotels.filters import RoomTypeFilter
 
@@ -78,6 +76,6 @@ class HotelRoomTypesView(DetailView):
             else:
                 room_type.price_selected_nights = None
 
-        print(f"Цена за {nights} ночей для {room_type.name}: {room_type.price_selected_nights}")
+            print(f"Цена за {nights} ночей для {room_type.name}: {room_type.price_selected_nights}")
 
         return context

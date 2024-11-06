@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block title %}Успешное бронирование{% endblock %}
+
+{% block body %}
+<div class="container mt-5">
+    <h2 class="text-center">Ваше бронирование успешно оформлено!</h2>
+    <p class="text-center">Спасибо за бронирование.</p>
+    <div class="text-center">
+        <a href="{% url 'main' %}" class="btn btn-primary">Вернуться на главную</a>
+    </div>
+</div>
+{% endblock %}

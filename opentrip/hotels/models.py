@@ -70,6 +70,13 @@ class RoomType(models.Model):
         verbose_name = 'Тип номера'
         verbose_name_plural = 'Типы номеров'
         unique_together = ['hotel', 'name']
+
+    def get_available_rooms(self, check_in, check_out):
+        return self.rooms.exclude(
+            bookedroom__check_in__lt=check_out,
+            bookedroom__check_out__gt=check_in
+        )
+
     def __str__(self):
         return f"{self.hotel.name} - {self.name}"
 
@@ -78,7 +85,7 @@ class RoomType(models.Model):
 class Room(models.Model):
     room_type = models.ForeignKey(RoomType, verbose_name='Тип номера', related_name='rooms', on_delete=models.CASCADE)
     number = models.CharField(max_length=10, verbose_name='Номер комнаты')
-
+    is_booked = models.BooleanField(default=False)
 
     class Meta:
         verbose_name = 'Номер'

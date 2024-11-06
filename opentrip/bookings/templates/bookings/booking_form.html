@@ -1,0 +1,104 @@
+{% extends 'base.html' %}
+
+{% block title %}Бронирование комнаты{% endblock %}
+
+{% block body %}
+<div class="container mt-5">
+    {% if room_type %}
+        <div class="card rounded-3 mb-4">
+            <div class="card-body">
+                <div class="d-flex align-items-center">
+                    <h3 class="card-title me-3">{{ hotel.name }}</h3>
+                    <span class="badge bg-light text-dark" style="font-size: 1.1rem;">{{ hotel.rating }}</span> <!-- Рейтинг рядом с названием отеля -->
+                </div>
+                <p class="card-text">{{ hotel.address }}</p>
+            </div>
+        </div>
+
+        <div class="card rounded-3 mb-4">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h5 class="card-title">Условия заселения</h5>
+                        <ul class="list-unstyled">
+                            <li>Заезд: {{ hotel.check_in_time|time:"H:i" }}</li>
+                            <li>Выезд: {{ hotel.check_out_time|time:"H:i" }}</li>
+                        </ul>
+                    </div>
+
+                    <div class="col-md-6">
+                        <h5 class="card-title">Информация о бронировании</h5>
+                        <ul class="list-unstyled">
+                            <li>Даты: {{ check_in }} - {{ check_out }}</li>
+                            <li>Кол-во гостей: {{ occupancy }}</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card rounded-3 mb-4">
+            <div class="card-body">
+                <h5 class="card-title">Введите данные покупателя</h5>
+                <form method="post">
+                    {% csrf_token %}
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="name" class="form-label">Имя:</label>
+                            <input type="text" class="form-control {% if form.name.errors %}is-invalid{% endif %}" id="name" name="name" value="{{ form.name.value }}">
+                            {% for error in form.name.errors %}
+                                <div class="invalid-feedback">{{ error }}</div>
+                            {% endfor %}
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="surname" class="form-label">Фамилия:</label>
+                            <input type="text" class="form-control {% if form.surname.errors %}is-invalid{% endif %}" id="surname" name="surname" value="{{ form.surname.value }}">
+                            {% for error in form.surname.errors %}
+                                <div class="invalid-feedback">{{ error }}</div>
+                            {% endfor %}
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="email" class="form-label">Email:</label>
+                            <input type="email" class="form-control {% if form.email.errors %}is-invalid{% endif %}" id="email" name="email" value="{{ form.email.value }}">
+                            {% for error in form.email.errors %}
+                                <div class="invalid-feedback">{{ error }}</div>
+                            {% endfor %}
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="phone_number" class="form-label">Номер телефона:</label>
+                            <input type="tel" class="form-control {% if form.phone_number.errors %}is-invalid{% endif %}" id="phone_number" name="phone_number" value="{{ form.phone_number.value }}">
+                            {% for error in form.phone_number.errors %}
+                                <div class="invalid-feedback">{{ error }}</div>
+                            {% endfor %}
+                        </div>
+                    </div>
+
+                    <div class="card rounded-3 mb-4">
+                        <div class="card-body">
+                            <div class="d-flex align-items-center mb-3">
+                                <img src="{{ room_type.preview.url }}" class="img-fluid me-3" style="width: 300px; height: 200px;" alt="Фото комнаты">
+                                <div>
+                                    <h5 class="card-title">{{ room_type.name }}</h5>
+                                    <p>{{ room_type.description }}</p>
+                                    <p><strong>Цена за ночь:</strong> {{ room_type.price_per_night }} руб.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card rounded-3 mb-4">
+                        <div class="card-body">
+                            <h5 class="card-title">Итого: {{ total_price }} руб.</h5>
+                            <button type="submit" class="btn btn-primary w-50">Оплатить</button>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+
+    {% else %}
+        <p>Комната не найдена. Попробуйте снова.</p>
+    {% endif %}
+</div>
+{% endblock %}
