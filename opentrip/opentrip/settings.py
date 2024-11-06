@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'travel_journals.apps.TravelJournalsConfig',
     'users.apps.UsersConfig',
     'django_bootstrap5',
+    'django_filters',
 ]
 
 MIDDLEWARE = [

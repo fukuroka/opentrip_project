@@ -3,7 +3,7 @@ from django.views.generic import ListView, DetailView, UpdateView, DeleteView, C
 from hotels.models import Hotel, RoomType
 from bookings.models import BookedRoom
 from datetime import datetime
-
+from hotels.filters import RoomTypeFilter
 
 
 class MainView(TemplateView):
@@ -65,13 +65,19 @@ class HotelRoomTypesView(DetailView):
             except ValueError:
                 pass
 
-        context['room_types'] = RoomType.objects.filter(hotel=self.object).prefetch_related('amenities', 'images')
+        context['room_types'] = RoomType.objects.filter(hotel=self.object).order_by('-price_per_night').prefetch_related('amenities', 'images')
+        filter = RoomTypeFilter(self.request.GET, queryset=context['room_types'])
+        context['filter'] = filter
         context['nights'] = nights
+        context['check_in'] = check_in
+        context['check_out'] = check_out
 
-        for room_type in context['room_types']:
+        for room_type in filter.qs:
             if nights is not None:
                 room_type.price_selected_nights = room_type.price_per_night * nights
             else:
                 room_type.price_selected_nights = None
+
+        print(f"Цена за {nights} ночей для {room_type.name}: {room_type.price_selected_nights}")
 
         return context

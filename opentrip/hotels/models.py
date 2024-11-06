@@ -7,7 +7,7 @@ def hotel_preview_directory_path(instance, filename):
     return f'hotels/{instance.name}/preview_{filename}'
 
 def hotel_photo_directory_path(instance, filename):
-    return f'hotels/{instance.name}/{filename}'
+    return f'hotels/{instance.hotel.name}/{filename}'
 
 def room_preview_directory_path(instance, filename):
     return f'rooms/{instance.name}/preview_{filename}'
@@ -15,13 +15,16 @@ def room_preview_directory_path(instance, filename):
 def room_photo_directory_path(instance, filename):
     return f'rooms/{instance.name}/{filename}'
 
-
 class Hotel(models.Model):
     name = models.CharField(max_length=70, verbose_name='Название отеля')
     address = models.CharField(max_length=80, verbose_name='Адрес отеля')
     city = models.CharField(max_length=70, verbose_name='Город')
     country = models.CharField(max_length=70, verbose_name='Страна')
     description = models.TextField(blank=True, null=True, verbose_name='Описание отеля')
+    check_in_time = models.TimeField(verbose_name='Время заселения',
+                                     default='14:00')
+    check_out_time = models.TimeField(verbose_name='Время выселения',
+                                      default='12:00')
     rating = models.DecimalField(max_digits=3, decimal_places=2, blank=True, null=True, validators=[MinValueValidator(0), MaxValueValidator(5.0)], verbose_name='Рейтинг отеля')
     preview = models.ImageField(null=True, blank=True,
                                 upload_to=hotel_preview_directory_path,
@@ -46,12 +49,11 @@ class Hotel(models.Model):
     def __str__(self):
         return self.name
 
-
 class RoomType(models.Model):
     hotel = models.ForeignKey(Hotel, verbose_name='Отель', related_name='room_types', on_delete=models.CASCADE)
     name = models.CharField(max_length=60, verbose_name='Название типа номера')
     description = models.TextField(blank=True, null=True, verbose_name='Описание типа номера')
-    occupancy = models.PositiveIntegerField(verbose_name='Максимальное количество гостей')
+    occupancy = models.PositiveIntegerField(verbose_name='Максимальное количество гостей',default=1)
     amenities = models.ManyToManyField("Amenity", verbose_name='Удобства типа номера', related_name='room_types', blank=True)
     price_per_night = models.DecimalField(max_digits=10, decimal_places=2, verbose_name='Цена за ночь', default=0.00)
     preview = models.ImageField(null=True, blank=True,
