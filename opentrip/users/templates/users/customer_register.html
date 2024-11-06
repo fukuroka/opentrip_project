@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}Регистрация пользователя{% endblock %}
+
+{% load django_bootstrap5 %}
+
+{% block body %}
+<div class="container mt-5">
+    <h2>Регистрация</h2>
+    <form method="post">
+        {% csrf_token %}
+        {% bootstrap_form form %}
+        <button type="submit" class="btn btn-primary">Зарегистрироваться</button>
+    </form>
+    <p>Если вы менеджер отеля, <a href="{% url 'users_app:hotel_register' %}">перейдите к регистрации отеля</a></p>
+</div>
+{% endblock %}

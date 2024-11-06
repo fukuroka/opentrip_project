@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %}Вход{% endblock %}
+
+{% block body %}
+<div class="container">
+    <h2>Вход</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+
+        {% if request.GET.next %}
+            <input type="hidden" name="next" value="{{ request.GET.next }}">
+        {% endif %}
+
+        <button type="submit" class="btn btn-primary">Войти</button>
+        <a href="{% url 'users_app:customer_register' %}" class="btn btn-secondary">Зарегистрироваться</a>
+    </form>
+</div>
+{% endblock %}

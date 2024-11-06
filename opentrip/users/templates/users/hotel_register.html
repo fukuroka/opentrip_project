@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}Регистрация отеля{% endblock %}
+
+{% load django_bootstrap5 %}
+
+{% block body %}
+<div class="container mt-5">
+    <h2>Регистрация отеля</h2>
+    <form method="post">
+        {% csrf_token %}
+        {% bootstrap_form form %}
+        <button type="submit" class="btn btn-primary">Зарегистрировать отель</button>
+    </form>
+</div>
+{% endblock %}

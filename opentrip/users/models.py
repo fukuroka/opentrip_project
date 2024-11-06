@@ -119,4 +119,4 @@ def get_user_profile(user):
         return user.customer_profile
     elif user.user_type == "hotel":
         return user.hotel_profile
-    return None  # or raise an exception
+    return None
