@@ -24,4 +24,4 @@ class HotelRegisterForm(UserCreationForm):
 
     class Meta:
         model = User
-        fields = ['username', 'hotel_name', 'phone_number', 'password1', 'password2']
+        fields = ['username', 'phone_number', 'password1', 'password2']

@@ -1,6 +1,7 @@
-from django.contrib.auth.views import LoginView
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.views import LoginView, LogoutView
 from django.urls import reverse_lazy
-from django.views.generic import CreateView
+from django.views.generic import CreateView, TemplateView, DetailView
 from users.forms import CustomLoginForm, CustomerRegisterForm, HotelRegisterForm
 from users.models import CustomerProfile,HotelProfile, User
 
@@ -51,3 +52,42 @@ class HotelRegisterView(CreateView):
         hotel_profile.save()
 
         return super().form_valid(form)
+
+class ProfileView(LoginRequiredMixin, DetailView):
+    model = User
+    template_name = 'users/profile.html'
+    context_object_name = 'user'
+
+    def get_object(self, queryset=None):
+        return self.request.user
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        user = self.request.user
+
+        if hasattr(user, 'customer_profile'):
+            profile = user.customer_profile
+            context.update({
+                'is_customer': True,
+                'name': profile.name,
+                'surname': profile.surname,
+                'profile': profile,
+                'saved_articles': user.saved_articles.all(),
+            })
+        elif hasattr(user, 'hotel_profile'):
+            profile = user.hotel_profile
+            context.update({
+                'is_customer': False,
+                'phone_number': profile.phone_number,
+                'website': profile.website,
+                'profile': profile,
+            })
+
+        return context
+
+
+class CustomLogoutView(LogoutView):
+    next_page = reverse_lazy('main')
+
+class LogoutTemplateView(TemplateView):
+    template_name = 'users/logout.html'

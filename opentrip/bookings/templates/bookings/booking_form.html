@@ -9,7 +9,7 @@
             <div class="card-body">
                 <div class="d-flex align-items-center">
                     <h3 class="card-title me-3">{{ hotel.name }}</h3>
-                    <span class="badge bg-light text-dark" style="font-size: 1.1rem;">{{ hotel.rating }}</span> <!-- Рейтинг рядом с названием отеля -->
+                    <span class="badge bg-light text-dark" style="font-size: 1.1rem;">{{ hotel.rating }}</span>
                 </div>
                 <p class="card-text">{{ hotel.address }}</p>
             </div>
@@ -45,28 +45,28 @@
                     <div class="row">
                         <div class="col-md-6 mb-3">
                             <label for="name" class="form-label">Имя:</label>
-                            <input type="text" class="form-control {% if form.name.errors %}is-invalid{% endif %}" id="name" name="name" value="{{ form.name.value }}">
+                            <input type="text" class="form-control {% if form.name.errors %}is-invalid{% endif %}" id="name" name="name">
                             {% for error in form.name.errors %}
                                 <div class="invalid-feedback">{{ error }}</div>
                             {% endfor %}
                         </div>
                         <div class="col-md-6 mb-3">
                             <label for="surname" class="form-label">Фамилия:</label>
-                            <input type="text" class="form-control {% if form.surname.errors %}is-invalid{% endif %}" id="surname" name="surname" value="{{ form.surname.value }}">
+                            <input type="text" class="form-control {% if form.surname.errors %}is-invalid{% endif %}" id="surname" name="surname">
                             {% for error in form.surname.errors %}
                                 <div class="invalid-feedback">{{ error }}</div>
                             {% endfor %}
                         </div>
                         <div class="col-md-6 mb-3">
                             <label for="email" class="form-label">Email:</label>
-                            <input type="email" class="form-control {% if form.email.errors %}is-invalid{% endif %}" id="email" name="email" value="{{ form.email.value }}">
+                            <input type="email" class="form-control {% if form.email.errors %}is-invalid{% endif %}" id="email" name="email">
                             {% for error in form.email.errors %}
                                 <div class="invalid-feedback">{{ error }}</div>
                             {% endfor %}
                         </div>
                         <div class="col-md-6 mb-3">
                             <label for="phone_number" class="form-label">Номер телефона:</label>
-                            <input type="tel" class="form-control {% if form.phone_number.errors %}is-invalid{% endif %}" id="phone_number" name="phone_number" value="{{ form.phone_number.value }}">
+                            <input type="tel" class="form-control {% if form.phone_number.errors %}is-invalid{% endif %}" id="phone_number" name="phone_number">
                             {% for error in form.phone_number.errors %}
                                 <div class="invalid-feedback">{{ error }}</div>
                             {% endfor %}

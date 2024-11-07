@@ -4,13 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9d1a7cfd-eb60-4691-b0f2-551c7fd7721a" name="Changes" comment="бронирование работает корректно!!!">
+    <list default="true" id="9d1a7cfd-eb60-4691-b0f2-551c7fd7721a" name="Changes" comment="сделаны вход и регистрация">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/opentrip/bookings/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/opentrip/bookings/templates/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/opentrip/bookings/templates/bookings/booking_form.html" beforeDir="false" afterPath="$PROJECT_DIR$/opentrip/bookings/templates/bookings/booking_form.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/opentrip/bookings/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/opentrip/bookings/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/opentrip/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/opentrip/db.sqlite3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/opentrip/hotels/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/opentrip/hotels/templates/base.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/opentrip/opentrip/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/opentrip/opentrip/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/opentrip/users/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/opentrip/users/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/opentrip/travel_journals/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/opentrip/travel_journals/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/opentrip/travel_journals/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/opentrip/travel_journals/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/opentrip/users/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/opentrip/users/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/opentrip/users/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/opentrip/users/templates/base.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/opentrip/users/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/opentrip/users/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/opentrip/users/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/opentrip/users/views.py" afterDir="false" />
     </list>
@@ -51,18 +56,19 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "DefaultHtmlFileTemplate": "HTML File",
-    "Python.models.executor": "Run",
-    "Python.update.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "master",
-    "last_opened_file_path": "/home/admin/Рабочий стол/Питон проекты/Обучение Джанго/Обучение_ИТ_КОД/opentrip_project/opentrip/users/templates"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;Python.models.executor&quot;: &quot;Run&quot;,
+    &quot;Python.update.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/admin/Рабочий стол/Питон проекты/Обучение Джанго/Обучение_ИТ_КОД/opentrip_project/opentrip/travel_journals/templates&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/opentrip/travel_journals/templates" />
       <recent name="$PROJECT_DIR$/opentrip/users/templates" />
       <recent name="$PROJECT_DIR$/opentrip/bookings/templates" />
     </key>
@@ -194,7 +200,15 @@
       <option name="project" value="LOCAL" />
       <updated>1730929952739</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="сделаны вход и регистрация">
+      <option name="closed" value="true" />
+      <created>1730936426537</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1730936426537</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -216,6 +230,7 @@
     <MESSAGE value="added templates and DetailView type_rooms. Update models TypeRoom and Room" />
     <MESSAGE value="добавлен фильтр для типов комнат, шаблон типов комнат полностью готов, частичные изменения в моделях" />
     <MESSAGE value="бронирование работает корректно!!!" />
-    <option name="LAST_COMMIT_MESSAGE" value="бронирование работает корректно!!!" />
+    <MESSAGE value="сделаны вход и регистрация" />
+    <option name="LAST_COMMIT_MESSAGE" value="сделаны вход и регистрация" />
   </component>
 </project>

@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block title %}Журнал путешествий{% endblock %}
+
+{% block body %}
+<div class="container mt-5">
+    <h1 class="mb-4">Журнал путешествий</h1>
+    <form method="get" class="mb-4">
+        {{ filter.form.as_p }}
+        <button type="submit" class="btn btn-primary">Применить</button>
+        <a href="{% url 'travel_journals_app:article_list' %}" class="btn btn-secondary">Сбросить</a>
+    </form>
+    <div class="row">
+        {% for article in articles %}
+            <div class="col-md-4 mb-4">
+                <div class="card h-100">
+                    <img src="{{ article.article_images.first.image.url }}" class="card-img-top" alt="Image for {{ article.title }}">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ article.title }}</h5>
+                        <p class="card-text">{{ article.content|truncatewords:20 }}</p>
+                        <div class="mt-3">
+                            {% for tag in article.tags.all %}
+                                <span class="badge bg-primary text-white">{{ tag.name }}</span>
+                            {% endfor %}
+                        </div>
+                        <a href="{% url 'travel_journals_app:article_detail' article.id %}" class="btn btn-outline-info mt-3">Подробнее</a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

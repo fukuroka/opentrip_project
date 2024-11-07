@@ -1,12 +1,12 @@
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import get_object_or_404, redirect
 from django.views.generic import CreateView, TemplateView
-from django.urls import reverse_lazy
 from bookings.models import Booking, BookedRoom
 from hotels.models import RoomType
 from bookings.forms import BookingForm
 from datetime import datetime
 
-class BookingCreateView(CreateView):
+class BookingCreateView(LoginRequiredMixin,CreateView):
     model = Booking
     form_class = BookingForm
     template_name = 'bookings/booking_form.html'

@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block title %}Профиль{% endblock %}
+
+{% block body %}
+<div class="container mt-5">
+    <h2>Профиль пользователя {{ user.username }}</h2>
+
+    {% if is_customer %}
+        <div style="margin-bottom:50px;">
+            <h3>Имя: {{ name }}</h3>
+            <h3>Фамилия: {{ surname }}</h3>
+        </div>
+        <div>
+            <h5>Сохраненные статьи:</h5>
+            <div class="row">
+                {% for saved_article in saved_articles %}
+                    <div class="col-md-4">
+                        <div class="card" style="width: 400px;">
+                            <img src="{{ saved_article.article.article_images.first.image.url }}" class="card-img-top" alt="{{ saved_article.article.title }}">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ saved_article.article.title }}</h5>
+                                <p class="card-text">{{ saved_article.article.content|slice:":100" }}...</p>
+                                <a href="{% url 'travel_journals_app:article_detail' saved_article.article.id %}" class="btn btn-primary">Читать далее</a>
+                            </div>
+                        </div>
+                    </div>
+                {% empty %}
+                    <p>У вас нет сохраненных статей.</p>
+                {% endfor %}
+            </div>
+        </div>
+        </div>
+    {% endif %}
+    {% if not is_customer %}
+        <h3>Отель: {{ profile.hotel_name }}</h3>
+        <h4>Телефон: {{ phone_number }}</h4>
+        <h4>Вебсайт: <a href="{{ website }}" target="_blank">{{ website }}</a></h4>
+    {% endif %}
+</div>
+{% endblock %}
