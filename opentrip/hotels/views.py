@@ -2,7 +2,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import get_object_or_404, redirect
 from django.urls import reverse_lazy
 from django.views.generic import ListView, DetailView, TemplateView, CreateView
-from hotels.models import Hotel, RoomType, HotelImage, Review
+from hotels.models import Hotel, RoomType, Review
 from datetime import datetime
 from hotels.filters import RoomTypeFilter
 from hotels.forms import HotelForm, ReviewForm
@@ -113,7 +113,6 @@ class AddReviewView(LoginRequiredMixin, CreateView):
         kwargs = super().get_form_kwargs()
         hotel = get_object_or_404(Hotel, pk=self.kwargs['hotel_id'])
 
-        # Проверка, если пользователь уже оставил отзыв
         if hotel.reviews.filter(user=self.request.user).exists():
             return redirect('hotels_app:hotel_types_room', pk=hotel.id)
 

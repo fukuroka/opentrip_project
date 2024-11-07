@@ -1,5 +1,5 @@
 from django import forms
-from .models import Hotel, HotelImage, Review
+from .models import Hotel, Review
 
 class HotelForm(forms.ModelForm):
     class Meta:

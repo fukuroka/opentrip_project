@@ -3,12 +3,14 @@
 {% block title %}Opentrip{% endblock %}
 
 {% block body %}
+    <h1 style="display:flex; align-items: center;justify-content: center;margin-top:20px;margin-bottom:20px;">Сервис путешествий по России</h1>
+
     <div class="container mt-5">
         <form method="get" action="{% url 'hotels_app:search_hotels' %}">
             <div class="row">
                 <div class="col-md-4">
                     <div class="mb-3">
-                        <label for="city" class="form-label">Город:</label>
+                        <label for="city" class="form-label">Выбери город:</label>
                         <input type="text" class="form-control" id="city" name="city" placeholder="Например, Москва">
                     </div>
                 </div>

@@ -105,13 +105,13 @@ class CustomerProfile(models.Model):
         super().save(*args, **kwargs)
 
 
-@receiver(post_save, sender=User)
+'''@receiver(post_save, sender=User)
 def create_profile(sender, instance, created, **kwargs):
     if created:
         if instance.user_type == 'hotel':
             HotelProfile.objects.create(user=instance)
         elif instance.user_type == 'customer':
-            CustomerProfile.objects.create(user=instance)
+            CustomerProfile.objects.create(user=instance)'''
 
 
 def get_user_profile(user):

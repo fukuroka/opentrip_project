@@ -4,18 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9d1a7cfd-eb60-4691-b0f2-551c7fd7721a" name="Changes" comment="добавлены профили и журнал путешествий, удалено предазаполнение формы бронирования">
+    <list default="true" id="9d1a7cfd-eb60-4691-b0f2-551c7fd7721a" name="Changes" comment="добавлены отели и номера к ним">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/opentrip/bookings/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/opentrip/bookings/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/opentrip/bookings/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/opentrip/bookings/templates/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/opentrip/bookings/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/opentrip/bookings/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/opentrip/bookings/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/opentrip/bookings/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/opentrip/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/opentrip/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/opentrip/hotels/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/opentrip/hotels/forms.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/opentrip/hotels/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/opentrip/hotels/templates/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/opentrip/hotels/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/opentrip/hotels/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/opentrip/hotels/templates/hotels/main.html" beforeDir="false" afterPath="$PROJECT_DIR$/opentrip/hotels/templates/hotels/main.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/opentrip/hotels/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/opentrip/hotels/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/opentrip/travel_journals/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/opentrip/travel_journals/templates/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/opentrip/users/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/opentrip/users/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/opentrip/users/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/opentrip/users/templates/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/opentrip/users/templates/users/profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/opentrip/users/templates/users/profile.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/opentrip/users/templates/users/logout.html" beforeDir="false" afterPath="$PROJECT_DIR$/opentrip/users/templates/users/logout.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -214,7 +215,39 @@
       <option name="project" value="LOCAL" />
       <updated>1730963812936</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="добавлено создание отеля">
+      <option name="closed" value="true" />
+      <created>1730967500528</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1730967500528</updated>
+    </task>
+    <task id="LOCAL-00011" summary="добавлены отзывы">
+      <option name="closed" value="true" />
+      <created>1730969272368</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1730969272368</updated>
+    </task>
+    <task id="LOCAL-00012" summary="обновлены отзывы">
+      <option name="closed" value="true" />
+      <created>1730969306403</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1730969306403</updated>
+    </task>
+    <task id="LOCAL-00013" summary="добавлены отели и номера к ним">
+      <option name="closed" value="true" />
+      <created>1730970093668</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1730970093668</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -238,6 +271,10 @@
     <MESSAGE value="бронирование работает корректно!!!" />
     <MESSAGE value="сделаны вход и регистрация" />
     <MESSAGE value="добавлены профили и журнал путешествий, удалено предазаполнение формы бронирования" />
-    <option name="LAST_COMMIT_MESSAGE" value="добавлены профили и журнал путешествий, удалено предазаполнение формы бронирования" />
+    <MESSAGE value="добавлено создание отеля" />
+    <MESSAGE value="добавлены отзывы" />
+    <MESSAGE value="обновлены отзывы" />
+    <MESSAGE value="добавлены отели и номера к ним" />
+    <option name="LAST_COMMIT_MESSAGE" value="добавлены отели и номера к ним" />
   </component>
 </project>

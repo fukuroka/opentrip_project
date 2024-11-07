@@ -16,10 +16,10 @@ class Booking(models.Model):
     ]
 
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, verbose_name='Пользователь')
-    name = models.CharField(max_length=255, default='111123132')
-    surname = models.CharField(max_length=255, default='jdnjfn')
-    phone_number = models.CharField(max_length=15,default='1111')
-    email = models.EmailField(default='11111')
+    name = models.CharField(max_length=255)
+    surname = models.CharField(max_length=255)
+    phone_number = models.CharField(max_length=15)
+    email = models.EmailField()
     booking_reference = models.UUIDField(default=uuid.uuid4, editable=False, unique=True, verbose_name='Номер бронирования')
     created_at = models.DateTimeField(auto_now_add=True, verbose_name='Дата создания')
     total_price = models.DecimalField(max_digits=10, decimal_places=2, verbose_name='Общая стоимость', default=0)
