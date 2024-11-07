@@ -1,5 +1,5 @@
 from django import forms
-from .models import Hotel, HotelImage
+from .models import Hotel, HotelImage, Review
 
 class HotelForm(forms.ModelForm):
     class Meta:
@@ -8,4 +8,13 @@ class HotelForm(forms.ModelForm):
         widgets = {
             'check_in_time': forms.TimeInput(format='%H:%M'),
             'check_out_time': forms.TimeInput(format='%H:%M'),
+        }
+
+class ReviewForm(forms.ModelForm):
+    class Meta:
+        model = Review
+        fields = ['rating', 'comment']
+        widgets = {
+            'rating': forms.NumberInput(attrs={'min': 1, 'max': 5}),
+            'comment': forms.Textarea(attrs={'rows': 4}),
         }

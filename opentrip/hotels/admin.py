@@ -1,5 +1,6 @@
 from django.contrib import admin
-from .models import Hotel, RoomType, Room, Amenity, HotelImage, RoomImage
+from .models import Hotel, RoomType, Room, Amenity, HotelImage, RoomImage, Review
+
 
 @admin.register(Hotel)
 class HotelAdmin(admin.ModelAdmin):
@@ -38,3 +39,7 @@ class RoomImageAdmin(admin.ModelAdmin):
     list_display = ('room', 'image')
     list_filter = ('room__room_type__hotel', 'room__room_type')
     search_fields = ('room__number',)
+
+@admin.register(Review)
+class ReviewAdmin(admin.ModelAdmin):
+    list_display = ('hotel','user', 'comment')

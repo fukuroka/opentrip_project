@@ -142,6 +142,30 @@
                 </div>
             </div>
         {% endfor %}
+            <div class="my-5">
+            <h3>Отзывы</h3>
+
+            {% if hotel.reviews.all %}
+                <div class="list-group">
+                    {% for review in hotel.reviews.all %}
+                        <div class="list-group-item">
+                            <div class="d-flex justify-content-between">
+                                <h5 class="mb-1">{{ review.user.username }}</h5>
+                                <small class="text-muted">{{ review.created_at|date:"d.m.Y" }}</small>
+                            </div>
+                            <div class="d-flex align-items-center">
+                                <span class="badge bg-success text-dark me-3">{{ review.rating }}</span>
+                                <p class="mb-1">{{ review.comment }}</p>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            {% else %}
+                <p>Отзывов еще нет. Будьте первым!</p>
+            {% endif %}
+
+            <a href="{% url 'hotels_app:add_review' hotel.pk %}?check_in={{ request.GET.check_in }}&check_out={{ request.GET.check_out }}&occupancy={{ request.GET.occupancy }}" class="btn btn-primary mt-3">Написать отзыв</a>
+        </div>
     </div>
 </div>
 {% endblock %}

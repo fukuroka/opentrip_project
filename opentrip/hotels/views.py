@@ -1,10 +1,11 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.shortcuts import get_object_or_404, redirect
 from django.urls import reverse_lazy
 from django.views.generic import ListView, DetailView, TemplateView, CreateView
-from hotels.models import Hotel, RoomType, HotelImage
+from hotels.models import Hotel, RoomType, HotelImage, Review
 from datetime import datetime
 from hotels.filters import RoomTypeFilter
-from hotels.forms import HotelForm
+from hotels.forms import HotelForm, ReviewForm
 
 
 class MainView(TemplateView):
@@ -95,3 +96,38 @@ class HotelCreateView(LoginRequiredMixin, CreateView):
         hotel.save()
 
         return super().form_valid(form)
+
+
+class AddReviewView(LoginRequiredMixin, CreateView):
+    model = Review
+    form_class = ReviewForm
+    template_name = 'hotels/add_review.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        hotel = get_object_or_404(Hotel, pk=self.kwargs['hotel_id'])  # Используем hotel_id из URL
+        context['hotel'] = hotel
+        return context
+
+    def get_form_kwargs(self):
+        kwargs = super().get_form_kwargs()
+        hotel = get_object_or_404(Hotel, pk=self.kwargs['hotel_id'])  # Используем hotel_id из URL
+
+        # Проверка, если пользователь уже оставил отзыв
+        if hotel.reviews.filter(user=self.request.user).exists():
+            # Переадресуем пользователя на страницу с типами номеров
+            return redirect('hotels_app:hotel_types_room', pk=hotel.id)
+
+        # Передача начальных данных (hotel и user)
+        kwargs['initial'] = {'hotel': hotel, 'user': self.request.user}
+        return kwargs
+
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        form.instance.hotel = get_object_or_404(Hotel, pk=self.kwargs['hotel_id'])  # Используем hotel_id из URL
+        return super().form_valid(form)
+
+    def get_success_url(self):
+        # Возвращаем URL страницы с типами номеров для этого отеля, используя параметр pk
+        return (reverse_lazy('hotels_app:hotel_types_room', kwargs={'pk': self.kwargs['hotel_id']}) +
+                f'?check_in={self.request.GET.get('check_in')}&check_out={self.request.GET.get('check_out')}&occupancy={self.request.GET.get('occupancy')}')
