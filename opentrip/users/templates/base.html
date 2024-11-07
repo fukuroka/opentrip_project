@@ -52,6 +52,7 @@
                 <li class="nav-item">
                             <a class="nav-link" href="{% url 'users_app:profile' %}">Профиль</a>
                         </li>
+                <li><a class="nav-link" href="{% url 'bookings_app:user-bookings' %}">Мои бронирования</a></li>
             {% else %}
                 <li class="nav-item">
                     <a class="nav-link btn btn-outline-primary" href="{% url 'users_app:login' %}">Войти</a>

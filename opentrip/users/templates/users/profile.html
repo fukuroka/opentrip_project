@@ -36,6 +36,7 @@
         <h3>Отель: {{ profile.hotel_name }}</h3>
         <h4>Телефон: {{ phone_number }}</h4>
         <h4>Вебсайт: <a href="{{ website }}" target="_blank">{{ website }}</a></h4>
+        <a href="{% url 'hotels_app:create_hotel' %}" class="btn btn-success">Создать отель</a>
     {% endif %}
 </div>
 {% endblock %}

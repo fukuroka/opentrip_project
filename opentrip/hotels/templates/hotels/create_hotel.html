@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title %}Создать отель{% endblock %}
+
+{% load django_bootstrap5 %}
+
+{% block body %}
+<h2 style="margin-left: 400px; margin-top: 30px;">Создать отель</h2>
+<div class="container d-flex justify-content-center align-items-center" style="min-height: 100vh;">
+    <div style="width: 700px;">
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            {% bootstrap_form form %}
+            <button type="submit" class="btn btn-primary w-100">Создать отель</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

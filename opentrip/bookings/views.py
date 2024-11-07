@@ -1,6 +1,6 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import get_object_or_404, redirect
-from django.views.generic import CreateView, TemplateView
+from django.views.generic import CreateView, TemplateView, ListView
 from bookings.models import Booking, BookedRoom
 from hotels.models import RoomType
 from bookings.forms import BookingForm
@@ -68,4 +68,13 @@ class BookingCreateView(LoginRequiredMixin,CreateView):
 
 class SuccessBooking(TemplateView):
     template_name = 'bookings/booking_success.html'
+
+
+class UserBookingsView(LoginRequiredMixin, ListView):
+    model = Booking
+    template_name = 'bookings/user_bookings.html'
+    context_object_name = 'bookings'
+
+    def get_queryset(self):
+        return Booking.objects.filter(user=self.request.user).prefetch_related('booked_rooms').order_by('-booked_rooms__check_in')
 

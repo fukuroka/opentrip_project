@@ -1,7 +1,10 @@
-from django.views.generic import ListView, DetailView,TemplateView
-from hotels.models import Hotel, RoomType
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.urls import reverse_lazy
+from django.views.generic import ListView, DetailView, TemplateView, CreateView
+from hotels.models import Hotel, RoomType, HotelImage
 from datetime import datetime
 from hotels.filters import RoomTypeFilter
+from hotels.forms import HotelForm
 
 
 class MainView(TemplateView):
@@ -79,3 +82,16 @@ class HotelRoomTypesView(DetailView):
             print(f"Цена за {nights} ночей для {room_type.name}: {room_type.price_selected_nights}")
 
         return context
+
+class HotelCreateView(LoginRequiredMixin, CreateView):
+    model = Hotel
+    form_class = HotelForm
+    template_name = 'hotels/create_hotel.html'
+    success_url = reverse_lazy('main')
+
+    def form_valid(self, form):
+        hotel = form.save(commit=False)
+        hotel.user = self.request.user
+        hotel.save()
+
+        return super().form_valid(form)

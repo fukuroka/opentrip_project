@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block title %}Мои бронирования{% endblock %}
+
+
+{% block body %}
+<h2 style="margin-bottom: 30px;">Мои бронирования</h2>
+
+    {% if bookings %}
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Номер брони</th>
+                    <th>Тип номера</th>
+                    <th>Дата заезда</th>
+                    <th>Дата выезда</th>
+                    <th>Цена</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for booking in bookings %}
+                    {% for booked_room in booking.booked_rooms.all %}
+                        <tr>
+                            <td>{{ booking.booking_reference }}</td>
+                            <td>{{ booked_room.room_type.name }}</td>
+                            <td>{{ booked_room.check_in }}</td>
+                            <td>{{ booked_room.check_out }}</td>
+                            <td>{{ booked_room.price }}</td>
+                        </tr>
+                    {% endfor %}
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>У вас нет бронирований.</p>
+{% endif %}
+{% endblock %}
